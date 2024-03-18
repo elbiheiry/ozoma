@@ -87,40 +87,40 @@ class LoginController extends Controller
             return response()->json('هذا المستخدم غير موجود', 400);
         }
 
-        $sid = '';
-        $token = '';
-        $client = new Client($sid, $token);
+        // $sid = '';
+        // $token = '';
+        // $client = new Client($sid, $token);
 
-        if ($user->code()->exists()) {
-            $user->code()->update([
-                'code' => rand(1000, 9999)
-            ]);
+        // if ($user->code()->exists()) {
+        //     $user->code()->update([
+        //         'code' => rand(1000, 9999)
+        //     ]);
 
-            $client->messages->create(
-                // the number you'd like to send the message to
-                Str::replaceFirst('0', '+20', $user->phone),
-                [
-                    // A Twilio phone number you purchased at twilio.com/console
-                    'messagingServiceSid' => '',
-                    // the body of the text message you'd like to send
-                    'body' => "برجاء ادخال هذا الكود لتاكيد تسجيل الدخول " . $user->code['code']
-                ]
-            );
-        } else {
-            $user->code()->create([
-                'code' => rand(1000, 9999)
-            ]);
-            $client->messages->create(
-                // the number you'd like to send the message to
-                Str::replaceFirst('0', '+20', $user->phone),
-                [
-                    // A Twilio phone number you purchased at twilio.com/console
-                    'messagingServiceSid' => '',
-                    // the body of the text message you'd like to send
-                    'body' => "برجاء ادخال هذا الكود لتاكيد تسجيل الدخول " . $user->code['code']
-                ]
-            );
-        }
+        //     $client->messages->create(
+        //         // the number you'd like to send the message to
+        //         Str::replaceFirst('0', '+20', $user->phone),
+        //         [
+        //             // A Twilio phone number you purchased at twilio.com/console
+        //             'messagingServiceSid' => '',
+        //             // the body of the text message you'd like to send
+        //             'body' => "برجاء ادخال هذا الكود لتاكيد تسجيل الدخول " . $user->code['code']
+        //         ]
+        //     );
+        // } else {
+        //     $user->code()->create([
+        //         'code' => rand(1000, 9999)
+        //     ]);
+        //     $client->messages->create(
+        //         // the number you'd like to send the message to
+        //         Str::replaceFirst('0', '+20', $user->phone),
+        //         [
+        //             // A Twilio phone number you purchased at twilio.com/console
+        //             'messagingServiceSid' => '',
+        //             // the body of the text message you'd like to send
+        //             'body' => "برجاء ادخال هذا الكود لتاكيد تسجيل الدخول " . $user->code['code']
+        //         ]
+        //     );
+        // }
 
         return response()->json($user->id, 200);
     }
