@@ -87,8 +87,8 @@ class LoginController extends Controller
             return response()->json('هذا المستخدم غير موجود', 400);
         }
 
-        $sid = 'AC846535727326995f1d9089b9fb982bc3';
-        $token = '65799a90d652053322689cd9467a2ce1';
+        $sid = '';
+        $token = '';
         $client = new Client($sid, $token);
 
         if ($user->code()->exists()) {
