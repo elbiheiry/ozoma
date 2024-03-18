@@ -1,0 +1,55 @@
+@use "../abstracts/abstracts_all" as *;
+
+/* Footer
+=====================*/
+footer {
+  background-color: $black_color;
+  padding: 40px 0 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  .up_btn {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    background-color: $main_color;
+    @include transition(0.3s linear all);
+    i {
+      @include transform(rotateX(180deg));
+    }
+  }
+
+  h3 {
+    font-weight: $weight_bold;
+    margin: 0 0 15px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  a {
+    color: #fff8;
+    display: inline-block;
+    line-height: 35px;
+    font-size: 16px;
+    &:hover {
+      color: $main_color;
+    }
+  }
+  ul {
+    margin-bottom: 15px;
+    li {
+      margin: 5px;
+    }
+    .icon_link {
+      background-color: #fff;
+      color: $black_color;
+    }
+  }
+  p {
+    margin: 25px 0 0;
+    color: #fff8;
+    font-size: 15px;
+  }
+}

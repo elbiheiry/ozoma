@@ -1,0 +1,18 @@
+/* Variables
+======================*/
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Almarai:wght@300;400;700&display=swap");
+
+// Color
+$main_color: #4ab37e;
+$dark_main: #229b60;
+$black_color: #333333;
+$white_color: #ffffff;
+$red_color: #dc3545;
+.red_bc{
+  background-color: $red_color !important;
+}
+// Font Setting
+$main_font: "Almarai", sans-serif;
+$weight_xbold: 700;
+$weight_bold: 400;
+$weight_reg: 300;

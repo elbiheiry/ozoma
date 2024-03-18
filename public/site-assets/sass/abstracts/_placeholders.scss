@@ -1,0 +1,100 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+%button_all {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  padding: 0 15px;
+  background-color: $main_color;
+  color: $white_color;
+  font-weight: $weight_bold;
+  border: 0;
+  @include box_no_shadow;
+  @include border_radius(5px);
+  @include transition(0.3s color linear);
+  &.white {
+    background-color: transparent;
+    border: 1px solid $main_color;
+    color: $main_color;
+  }
+  i {
+    margin: 0 3px;
+  }
+  &:hover {
+    background-color: $dark_main;
+    color: #fff;
+  }
+}
+
+%button_icon {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  line-height: 45px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 14px;
+  padding: 0;
+  background-color: $main_color;
+  color: $white_color;
+  border: 0;
+  @include box_no_shadow;
+  @include border_radius(50%);
+  i,
+  &::before {
+    z-index: 999;
+    position: relative;
+  }
+  &:hover {
+    color: #fff;
+    background-color: $dark_main;
+    i,
+    &::before {
+      color: #fff;
+    }
+  }
+}
+%list {
+  margin: 0;
+  li {
+    display: block;
+    position: relative;
+    line-height: 25px;
+    margin-bottom: 15px;
+    padding-inline-start: 25px;
+    font-size: 14px;
+    &::before {
+      content: "\e919";
+      font-family: "icons_font" !important;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $main_color;
+    }
+  }
+}
+%flex {
+  @include flex(column, center, start);
+}
+
+.link {
+  @extend %button_all;
+}
+.icon_link {
+  @extend %button_icon;
+}
+.list {
+  @extend %list;
+}
+.flex {
+  @extend %flex;
+}

@@ -1,0 +1,140 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "placeholders" as *;
+
+/* Setting Style
+======================*/
+*,
+:focus {
+  outline: 0 !important;
+  scroll-behavior: smooth;
+  direction: rtl;
+}
+::selection {
+  background-color: $main_color !important;
+  color: #fff !important;
+}
+body {
+  font-family: $main_font;
+  overflow: hidden;
+  width: 100%;
+  background-color: #fff;
+  font-weight: $weight_reg;
+  text-align: start;
+}
+.mt-15 {
+  margin-top: 15px !important;
+}
+.mb-15 {
+  margin-bottom: 15px !important;
+}
+.mb-25 {
+  margin-bottom: 25px !important;
+}
+.h-30 {
+  height: 30px;
+  width: 100%;
+}
+
+/* Loading
+======================*/
+.loading {
+  @include flex(column, center, center);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+/* Lists  
+======================*/
+ul {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+/* Links 
+======================*/
+a,
+a:hover,
+a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*Images
+======================*/
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Page Setting
+=====================*/
+section {
+  position: relative;
+  padding: 80px 0 0;
+  background-color: #fff;
+  z-index: 99;
+  @include mediaquery(max, tablet) {
+    padding: 25px 0;
+  }
+
+  @include mediaquery(max, desktop) {
+    padding-top: 40px;
+  }
+}
+.section_color {
+  background-color: #e1e3e6;
+}
+.section_title {
+  margin-bottom: 40px;
+  h3 {
+    font-weight: $weight_xbold;
+    font-size: 32px;
+    margin: 0;
+    line-height: 35px;
+  }
+  p {
+    color: rgba($black_color, 0.8);
+    display: block;
+    margin: 15px 0 0;
+    font-size: 26px;
+  }
+  h4 {
+    font-weight: $weight_reg  ;
+    margin: 25px 0 0;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  @include mediaquery(max, desktop) {
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+
+  @include mediaquery(max, mobile) {
+    margin-bottom: 10px;
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
